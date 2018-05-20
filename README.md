@@ -8,17 +8,19 @@ If you aren't familiar with the game, you can check out the rules and the game b
 Milestones
 ==========
 + Set up basic infrastructure
-    - React Basics (Using create-react-app)
-    - git
-    - ?
+- [x] React Basics (Using create-react-app)
+- [x] git
+- [x] npm
 
 + Determine a design for the page
-    - Zone to show all icons
-    - Zone to show selected icons
-    - Way to pick color (subconcept)
-    - Way to show just one person the card with phrases
+- [ ] Panel to show all icons
+- [ ] Panel to show just the selected icons
+- [ ] Way to pick which subconcept you're describing
+- [ ] Way to show just one person the card with phrases
 
 + Implement the behavior
+- [ ] Clicking on a concept places a marker on it
+- ?
 
 Development
 ===========
@@ -26,19 +28,35 @@ Development
 Getting Started
 ---------------
 0. Have git and npm
-1. Clone this repo with git (>> git clone git@github.com:StevenLove/concept.git)
-2. go into the repo (>> cd concept)
-3. >> npm install
+1. Clone this repo with git
+```console
+git clone git@github.com:StevenLove/concept.git
+```
+2. Go into the repo
+```console
+cd concept
+```
+3. Install dependencies
+```console
+npm install
+```
 
 Testing
 -------
-1. >> npm start
+```console 
+npm start
+```
+This will open a browser tab to localhost:3000, where you can see the project.
+Live reloading is enabled, so when you make a change to the code and save the file, the page should automatically refresh with your changes in effect.
+
+Building
+--------
+TBD. Eventually this will be hosted by github on gh-pages.
 
 
 
-
-
-
+And Now, a Message from Create React App
+========================================
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
