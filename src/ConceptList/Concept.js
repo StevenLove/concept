@@ -1,25 +1,39 @@
 import React, { Component } from 'react';
 
 class Concept extends Component {
-    // name="hi";
 
-    markers = [];
 
+    /* This runs once at the beginning */
+    constructor(props) {
+        super(props); // not sure
+        this.state = {markers: []}; // initialize 'markers' property on state
+    }
+
+    addMarker = color => {
+        let newMarkers = [...this.state.markers,color];
+        this.setState({
+            markers:newMarkers
+        })
+    }
 
     handleClick = event => {
-        console.log("event",event);
-        event.currentTarget.style.backgroundColor = '#cc0000';
+        this.addMarker("red")
     }
 
     render(args) {
         let name = this.props.name;
         let imgSrc = "img/"+name+".png";
         let altText = name;
-        console.log("this",this);
         return (
             <span className="concept">
                 <img onClick={this.handleClick} src={imgSrc} alt={altText}></img>
-                <div class="marker">hi</div>
+                <div className="markers">
+                    {
+                        this.state.markers.map(color=>{
+                            return <div className={"marker "+"marker-"+color}></div>
+                        })
+                    }
+                </div>
             </span>
         );
     }
