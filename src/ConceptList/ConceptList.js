@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Concept from "./Concept"
 // import Concepts from '../Configuration/concepts.js'
-// import './App.css';
 
 class ConceptList extends Component {
 
@@ -32,9 +31,7 @@ class ConceptList extends Component {
         })
         console.log("concepts",concepts);
         return (
-            <div>
-                <div> ConceptList </div>
-                <p> hello </p> 
+            <div className="conceptListContainer">
                 {concepts}
             </div>
         );
