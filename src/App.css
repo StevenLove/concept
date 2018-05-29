@@ -48,23 +48,43 @@
 
 .concept{
   position:relative;
-  width:20vw;
+  width:10vw;
+  cursor: pointer;
+}
+.concept>img{
+  width:100%;
+  height:auto;
 }
 
 .markers{
   position:absolute;
   top:0;
   left:0;
+  width:100%;
+  height:100%;
   z-index:2;
   /* background-color:red; */
   /* width:2vw; */
-  height:2vw;
+  /* height:2vw; */
   display:flex;
+}
+@keyframes example {
+  0%,50% {box-shadow:none}
+  80%,100% {box-shadow: -.5vw -.5vw 4vw 2vw #FFFFFF;}
 }
 
 .marker{
   width:2vw;
+  height:2vw;
+  margin-bottom:0.5vw;
   margin-right:0.5vw;
+  border: 1px solid black;
+  /* box-shadow: 5px 10px 8px 10px #FFFFFF; */
+  animation-name: example;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  /* animation-delay:5s; */
 }
 .marker-red{
   background-color:red;
@@ -74,4 +94,28 @@
 }
 .marker-blue{
   background-color:blue;
+}
+
+
+
+.subConceptSelector{
+  display:flex;
+  flex-wrap:wrap;
+}
+
+.subconcept{
+  width:10vw;
+  height:10vw;
+  margin-bottom:2vh;
+  cursor: pointer;
+}
+
+.subconcept-red{
+  background-color:red;
+}
+.subconcept-blue{
+  background-color:blue;
+}
+.subconcept-green{
+  background-color:green;
 }
