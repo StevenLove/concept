@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Markers from './Markers.js';
 
 class Concept extends Component {
 
@@ -16,7 +15,8 @@ class Concept extends Component {
         return (
             <span onClick={this.handleClick} className="concept">
                 <img  src={imgSrc} alt={altText}></img>
-                <Markers colors={this.props.markerColors}></Markers>
+                {//<Markers colors={this.props.markerColors}></Markers>
+                }
             </span>
         );
     }

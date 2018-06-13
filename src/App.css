@@ -25,7 +25,10 @@
   display:flex;
   flex-wrap:wrap;
 }
-
+.subConceptListContainer{
+  display:flex;
+  flex-wrap:wrap;
+}
 /*********/
 /* Color */
 /*********/

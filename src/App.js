@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import ConceptList from './Components/ConceptList.js'
 import './App.css';
 import SubconceptSelector from './Components/SubconceptSelector.js';
+import SubconceptList from './Components/SubconceptList';
 
 class App extends Component {
     constructor(props) {
@@ -33,10 +34,13 @@ class App extends Component {
             selectedConcepts:newConcepts
         });
         console.log("concept selected",concept);
+        console.log(newConcepts);
     }
     
 
   render() {
+    const { color, selectedConcepts } = this.state;
+
     return(
         <div>
             <div id="hbar">
@@ -47,10 +51,10 @@ class App extends Component {
                     <SubconceptSelector selectFn={this.selectSubconcept}></SubconceptSelector>
                 </div>
                 <div id="panel2" className="panel">
-                    <ConceptList selectFn={this.selectConcept} selected={this.state.selectedConcepts}></ConceptList>
+                    <ConceptList selectFn={this.selectConcept} selected={selectedConcepts}></ConceptList>
                 </div>
                 <div id="panel3" className="panel">
-                    Chosen concepts
+                    <SubconceptList selectFn={this.selectConcept} selected={selectedConcepts} />
                 </div>
             </div>
         </div>

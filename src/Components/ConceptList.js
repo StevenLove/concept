@@ -41,17 +41,8 @@ class ConceptList extends Component {
 
 
     render() {
-        let concepts = this.naturalOrdering.map((name,index)=>{
-            // return <div>{name}</div>
-            let markerColors = this.props.selected.reduce((acc,curr)=>{
-                if(curr.concept === name){
-                    acc.push(curr.color);
-                }
-                return acc;
-            },[])
-            console.log(markerColors,"marker colors");
-            
-            return <Concept key={index} name={name} selectFn={this.props.selectFn} markerColors={markerColors}></Concept>
+        let concepts = this.naturalOrdering.map((name,index)=>{ 
+            return <Concept key={index} name={name} selectFn={this.props.selectFn}></Concept>
         })
         console.log("concepts",concepts);
         return (
