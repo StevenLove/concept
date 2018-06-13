@@ -15,12 +15,19 @@ class SubconceptSelector extends Component {
         this.props.selectFn(color); 
     }
 
+    
+
     render() {
         return (
             <span className="subconceptSelector">
                 {
                     this.colors.map((color,id)=>{
-                        return <div key={id} onClick={()=>this.handleClick(id)} className={"subconcept subconcept-"+color}>
+                        let classString = "subconcept subconcept-"+color;
+                        let isSelected = this.props.selectedSubconcept === color;
+                        if(isSelected){
+                            classString += " subconcept-selected";
+                        }
+                        return <div key={id} onClick={()=>this.handleClick(id)} className={classString}>
 
                         </div>
                     })

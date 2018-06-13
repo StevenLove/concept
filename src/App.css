@@ -5,7 +5,7 @@
   display:flex;
 }
 #hbar{ /* area above the game where options might go */
-  height:100vh;
+  height:20vh;
 }
 .panel{ 
   height:100vh;
@@ -111,7 +111,7 @@
 }
 
 
-
+/* Subconcept Selector */
 .subConceptSelector{
   display:flex;
   flex-wrap:wrap;
@@ -132,4 +132,8 @@
 }
 .subconcept-green{
   background-color:green;
+}
+
+.subconcept-selected{
+  border:5px solid black;
 }

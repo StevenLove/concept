@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import ConceptList from './Components/ConceptList.js'
 import './App.css';
 import SubconceptSelector from './Components/SubconceptSelector.js';
-import SubconceptList from './Components/SubconceptList';
+import SelectedList from './Components/SelectedList';
 
 class App extends Component {
     constructor(props) {
@@ -20,7 +20,6 @@ class App extends Component {
             selectedSubconcept:color,
             selectedConcepts:this.state.selectedConcepts
         });
-        console.log("subconcept selected",color);
     }
 
     /* This fn is sent down to Concept.js */
@@ -33,15 +32,35 @@ class App extends Component {
             selectedSubconcept:this.state.selectedSubconcept,
             selectedConcepts:newConcepts
         });
-        console.log("concept selected",concept);
-        console.log(newConcepts);
     }
-    
+
+    // unselectConcept = record => {
+    //     console.log("unselecting record",record);
+    //     let concept = record.concept;
+    //     let color = record.color;
+    //     let selectedConcepts = this.state.selectedConcepts.slice(0); // make a copy of selected Concepts
+        
+    //     let indexToRemove = 0;
+    //     let n = record.index; // index of this record in a list of records of only its color
+    //     for(let i = 0; i <= n; ++i){ // iterate n+1 times
+            
+    //     }
+        
+    //     let conceptsOfThisColor = selectedConcepts.filter(record=>record.color === color); // get just the ones of the right color
+    //     let conceptToRemove = conceptsOfThisColor[record.index]; // find the obj we want to remove
+    //     let indexToRemove = selectedConcepts.indexOf(element=>element === conceptToRemove); // using object equality by reference here
+        
+    //     if(indexToRemove === -1){ // target not found
+    //         throw("how was this possible? tried to remove concept but couldnt find it",record,selectedConcepts);
+    //     }
+    //     selectedConcepts.splice(indexToRemove,1); // remove the target concept
+    //     this.setState({
+    //         selectedSubconcept:this.state.selectedSubconcept,
+    //         selectedConcepts:selectedConcepts
+    //     })
+    // }
 
   render() {
-    //intialize some variables so it's easier to pass to the other components
-    const { color, selectedConcepts } = this.state;
-
     return(
         <div>
             <div id="hbar">
@@ -49,13 +68,13 @@ class App extends Component {
             </div>
             <div id="container">
                 <div id="panel1" className="panel">
-                    <SubconceptSelector selectFn={this.selectSubconcept}></SubconceptSelector>
+                    <SubconceptSelector selectFn={this.selectSubconcept} selectedSubconcept={this.state.selectedSubconcept}></SubconceptSelector>
                 </div>
                 <div id="panel2" className="panel">
-                    <ConceptList selectFn={this.selectConcept} selected={selectedConcepts}></ConceptList>
+                    <ConceptList selectFn={this.selectConcept} selected={this.state.selectedConcepts}></ConceptList>
                 </div>
                 <div id="panel3" className="panel">
-                    <SubconceptList selectFn={this.selectConcept} selected={selectedConcepts} />
+                    <SelectedList /*selectFn={this.unselectConcept}*/ selected={this.state.selectedConcepts} />
                 </div>
             </div>
         </div>

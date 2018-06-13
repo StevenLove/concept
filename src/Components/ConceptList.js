@@ -44,7 +44,6 @@ class ConceptList extends Component {
         let concepts = this.naturalOrdering.map((name,index)=>{ 
             return <Concept key={index} name={name} selectFn={this.props.selectFn}></Concept>
         })
-        console.log("concepts",concepts);
         return (
             <div className="conceptListContainer" >
                 {concepts}

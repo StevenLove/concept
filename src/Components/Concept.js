@@ -8,7 +8,7 @@ class Concept extends Component {
         this.props.selectFn(this.props.name);
     }
 
-    render(args) {
+    render() {
         let name = this.props.name;
         let imgSrc = "img/"+name+".png";
         let altText = name;
