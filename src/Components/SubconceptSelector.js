@@ -15,7 +15,7 @@ class SubconceptSelector extends Component {
         this.props.selectFn(color); 
     }
 
-    render(args) {
+    render() {
         return (
             <span className="subconceptSelector">
                 {

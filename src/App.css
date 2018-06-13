@@ -25,9 +25,20 @@
   display:flex;
   flex-wrap:wrap;
 }
-.subConceptListContainer{
+.greenSubConceptListContainer{
   display:flex;
   flex-wrap:wrap;
+  background:green;
+}
+.blueSubConceptListContainer{
+  display:flex;
+  flex-wrap:wrap;
+  background:blue;
+}
+.redSubConceptListContainer{
+  display:flex;
+  flex-wrap:wrap;
+  background:red;
 }
 /*********/
 /* Color */

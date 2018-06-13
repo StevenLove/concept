@@ -39,6 +39,7 @@ class App extends Component {
     
 
   render() {
+    //intialize some variables so it's easier to pass to the other components
     const { color, selectedConcepts } = this.state;
 
     return(
