@@ -9,10 +9,17 @@ class App extends Component {
     constructor(props) {
         super(props); // boilerplate
         this.state = {
-            selectedSubconcept: "green",
-            selectedConcepts: [] // elements look like {concept:"male",color:"blue"}
-        }; // initialize selected to be green
+            selectedSubconcept: "green", // initialize selected to be green
+            selectedConcepts: {
+                "green":[], // elements in this array will be a concept name, like "male" or "white" or "supreme"
+                "blue":[],
+                "red":[],
+                "yellow":[],
+                "black":[]
+            }
+        }; 
     }
+    copyState = () => JSON.parse(JSON.stringify(this.state));
 
     /* This fn is sent down to SubconceptSelector.js */
     selectSubconcept = color => {
@@ -24,41 +31,21 @@ class App extends Component {
 
     /* This fn is sent down to Concept.js */
     selectConcept = concept => {
-        let newSelection = {concept:concept,color:this.state.selectedSubconcept}
-        let newConcepts = [...this.state.selectedConcepts,newSelection];
-        // let newState = Object.assign({},)
-        this.state.selectedConcepts.push(newSelection);
-        this.setState({
-            selectedSubconcept:this.state.selectedSubconcept,
-            selectedConcepts:newConcepts
-        });
+        let color = this.state.selectedSubconcept;
+        let stateCopy = this.copyState();
+        stateCopy.selectedConcepts[color].push(concept);
+        this.setState(stateCopy);
     }
 
-    // unselectConcept = record => {
-    //     console.log("unselecting record",record);
-    //     let concept = record.concept;
-    //     let color = record.color;
-    //     let selectedConcepts = this.state.selectedConcepts.slice(0); // make a copy of selected Concepts
-        
-    //     let indexToRemove = 0;
-    //     let n = record.index; // index of this record in a list of records of only its color
-    //     for(let i = 0; i <= n; ++i){ // iterate n+1 times
-            
-    //     }
-        
-    //     let conceptsOfThisColor = selectedConcepts.filter(record=>record.color === color); // get just the ones of the right color
-    //     let conceptToRemove = conceptsOfThisColor[record.index]; // find the obj we want to remove
-    //     let indexToRemove = selectedConcepts.indexOf(element=>element === conceptToRemove); // using object equality by reference here
-        
-    //     if(indexToRemove === -1){ // target not found
-    //         throw("how was this possible? tried to remove concept but couldnt find it",record,selectedConcepts);
-    //     }
-    //     selectedConcepts.splice(indexToRemove,1); // remove the target concept
-    //     this.setState({
-    //         selectedSubconcept:this.state.selectedSubconcept,
-    //         selectedConcepts:selectedConcepts
-    //     })
-    // }
+    unselectConcept = record => {
+        console.log("unselecting record",record);
+        let color = record.color;
+        let index = record.index;
+        let stateCopy = this.copyState();
+
+        stateCopy.selectedConcepts[color].splice(index,1);
+        this.setState(stateCopy);
+    }
 
   render() {
     return(
@@ -74,7 +61,7 @@ class App extends Component {
                     <ConceptList selectFn={this.selectConcept} selected={this.state.selectedConcepts}></ConceptList>
                 </div>
                 <div id="panel3" className="panel">
-                    <SelectedList /*selectFn={this.unselectConcept}*/ selected={this.state.selectedConcepts} />
+                    <SelectedList selectFn={this.unselectConcept} selected={this.state.selectedConcepts} />
                 </div>
             </div>
         </div>

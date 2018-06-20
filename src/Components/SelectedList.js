@@ -6,9 +6,7 @@ class SelectedList extends Component{
 	render() {
         const allColors = ['red','green','blue'];
         const getConceptStringsOfColor = targetColor => {
-            return this.props.selected.filter(record=>{
-                return record.color === targetColor; // concepts that match the color we want
-            }).map(record=>record.concept); // return an array of concepts(['male','white','animal']) not records
+            return this.props.selected[targetColor];
         }
 
         const handleClick = (concept,color,index) => {

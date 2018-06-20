@@ -48,6 +48,7 @@
 }
 #panel1{
   background-color:rgba(255, 0, 0, 0.267);
+  overflow:hidden;
 }
 #panel2{
   background-color:#05051a36;
@@ -118,9 +119,9 @@
 }
 
 .subconcept{
-  width:10vw;
-  height:10vw;
-  margin-bottom:2vh;
+  width:8vw;
+  height:8vw;
+  margin:2vh;
   cursor: pointer;
 }
 
@@ -133,7 +134,16 @@
 .subconcept-green{
   background-color:green;
 }
+.subconcept-yellow{
+  background-color:gold;
+}
+.subconcept-black{
+  background-color:black;
+}
 
 .subconcept-selected{
   border:5px solid black;
+}
+.subconcept-selected.subconcept-black{
+  border:5px solid white;
 }

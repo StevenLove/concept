@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class SubconceptSelector extends Component {
     /* pass in a function 'selectFn' through props */
 
-    colors = ["green","blue","red"];
+    colors = ["green","blue","red","yellow","black"];
     images = {
         "red":'blah',
         "blue":'blah',
