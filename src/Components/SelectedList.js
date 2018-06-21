@@ -30,15 +30,22 @@ class SelectedList extends Component{
             return conceptStrings.map((concept,index)=>{
                 return makeConceptElementFromString(concept,color,index);
             })
-        }) 
+        })
+        /* makes it so when we click on the red part of the selected subconcepts that it selects red! */
+        let selectSubconcept = this.props.selectSubconcept;
+        let ssc = color=>{ // returns a function that takes 0 arguments and selects the given color
+            return ()=>{
+                selectSubconcept(color)
+            };
+        }
 
         return (
             <div>
-                <div className="scl scl-g">{conceptGroups[1]}</div>
-                <div className="scl scl-u">{conceptGroups[2]}</div>
-                <div className="scl scl-r">{conceptGroups[0]}</div>
-                <div className="scl scl-y">{conceptGroups[3]}</div>
-                <div className="scl scl-b">{conceptGroups[4]}</div>
+                <div onClick={ssc("green")} className="scl scl-g">{conceptGroups[1]}</div>
+                <div onClick={ssc("blue")} className="scl scl-u">{conceptGroups[2]}</div>
+                <div onClick={ssc("red")} className="scl scl-r">{conceptGroups[0]}</div>
+                <div onClick={ssc("yellow")} className="scl scl-y">{conceptGroups[3]}</div>
+                <div onClick={ssc("black")} className="scl scl-b">{conceptGroups[4]}</div>
             </div>
         );
     }

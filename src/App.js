@@ -27,8 +27,7 @@ class App extends Component {
     /* This fn is sent down to SubconceptSelector.js */
     selectSubconcept = color => {
         this.setState({
-            selectedSubconcept:color,
-            selectedConcepts:this.state.selectedConcepts
+            selectedSubconcept:color
         });
     }
 
@@ -47,7 +46,7 @@ class App extends Component {
         let stateCopy = this.copyState();
 
         stateCopy.selectedConcepts[color].splice(index,1);
-        this.setState(stateCopy);
+        this.setState({selectedConcepts:stateCopy.selectedConcepts})
     }
 
     getRandomWord = (wordList) => {
@@ -86,7 +85,7 @@ class App extends Component {
                     <ConceptList selectFn={this.selectConcept} selected={this.state.selectedConcepts}></ConceptList>
                 </div>
                 <div id="panel3" className="panel">
-                    <SelectedList selectFn={this.unselectConcept} selected={this.state.selectedConcepts} />
+                    <SelectedList selectFn={this.unselectConcept} selectSubconcept={this.selectSubconcept} selected={this.state.selectedConcepts} />
                 </div>
             </div>
         </div>
