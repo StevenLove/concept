@@ -84,7 +84,7 @@
   height:auto;
 }
 
-.wordLists{
+button{
   display:flex;
   flex-wrap:wrap;
   background-color:white;
@@ -93,6 +93,7 @@
   margin:2vh;
   line-height: 4vw; 
   justify-content: center;
+  cursor:pointer;
 }
 
 .hidden{
@@ -104,6 +105,7 @@
   margin:2vh;
   line-height: 4vw; 
   justify-content: center;
+  cursor:pointer;
 }
 
 .unHidden{

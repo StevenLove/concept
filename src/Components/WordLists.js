@@ -415,9 +415,9 @@ class WordLists extends Component{
     render(){
         return(
             <div>
-                <div className="wordLists" onClick={()=>this.handleClick(this.codenamesList)}>
-                    CLICK ME
-                </div>
+                <button type="button" onClick={()=>this.handleClick(this.codenamesList)}>
+                    NEW CONCEPT
+                </button>
                 <div className={ this.props.isHidden } onMouseDown={()=>this.unHideClick()} onMouseUp={()=>this.unHideClick()}>
                     { this.props.word }
                 </div>
