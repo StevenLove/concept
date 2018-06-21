@@ -403,7 +403,7 @@ class WordLists extends Component{
         "Cap",
         "Triangle"
     ]
-
+    
     handleClick = (codenamesList) => {
         this.props.selectFn(codenamesList); 
     }
