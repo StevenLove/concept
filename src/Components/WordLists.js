@@ -408,13 +408,17 @@ class WordLists extends Component{
         this.props.selectFn(codenamesList); 
     }
 
+    unHideClick = () => {
+        this.props.hideFn();
+    }
+
     render(){
         return(
             <div>
                 <div className="wordLists" onClick={()=>this.handleClick(this.codenamesList)}>
                     CLICK ME
                 </div>
-                <div className="wordLists">
+                <div className={ this.props.isHidden } onMouseDown={()=>this.unHideClick()} onMouseUp={()=>this.unHideClick()}>
                     { this.props.word }
                 </div>
             </div>

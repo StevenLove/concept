@@ -127,6 +127,27 @@
   line-height: 4vw; 
   justify-content: center;
 }
+
+.hidden{
+  display:flex;
+  flex-wrap:wrap;
+  background-color: black;
+  width:8vw;
+  height:4vw;
+  margin:2vh;
+  line-height: 4vw; 
+  justify-content: center;
+}
+.unHidden{
+  display:flex;
+  flex-wrap:wrap;
+  background-color:white;
+  width:8vw;
+  height:4vw;
+  margin:2vh;
+  line-height: 4vw; 
+  justify-content: center;
+}
 /* Subconcept Selector */
 .subConceptSelector{
   display:flex;

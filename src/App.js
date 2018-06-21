@@ -18,7 +18,8 @@ class App extends Component {
                 "yellow":[],
                 "black":[]
             },
-            concept: ""
+            concept: "",
+            hidden: "hidden"
         }; 
     }
     copyState = () => JSON.parse(JSON.stringify(this.state));
@@ -58,6 +59,18 @@ class App extends Component {
         this.setState(stateCopy);
     }
 
+    toggleHide = () => {
+        let stateCopy = this.copyState();
+
+        if(stateCopy.hidden === "hidden"){
+            stateCopy.hidden = "unHidden";
+        }
+        else{
+            stateCopy.hidden = "hidden";
+        }
+        this.setState(stateCopy);
+    }
+
   render() {
     return(
         <div>
@@ -66,7 +79,7 @@ class App extends Component {
             </div>
             <div id="container">
                 <div id="panel1" className="panel">
-                    <WordLists selectFn={this.getRandomWord} word={this.state.concept}></WordLists>
+                    <WordLists selectFn={this.getRandomWord} hideFn={this.toggleHide} word={this.state.concept} isHidden={this.state.hidden}></WordLists>
                     <SubconceptSelector selectFn={this.selectSubconcept} selectedSubconcept={this.state.selectedSubconcept}></SubconceptSelector>
                 </div>
                 <div id="panel2" className="panel">
