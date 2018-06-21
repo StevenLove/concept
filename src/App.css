@@ -71,10 +71,12 @@
   position:relative;
   width:10vw;
   cursor: pointer;
+  margin: 1vh;
 }
 .concept:hover{
   animation: pop 0.3s linear 1;
 }
+
 @keyframes pop{
   50% {transform: scale(1.2);}
 }
@@ -95,7 +97,12 @@ button{
   justify-content: center;
   cursor:pointer;
 }
-
+button:hover{
+  background-color:lightgray;
+}
+button:active{
+  transform: translateY(3px);
+}
 .hidden{
   display:flex;
   flex-wrap:wrap;
