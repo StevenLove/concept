@@ -4,6 +4,10 @@
 #container{ /* contains the panels that make up the game (panel1,2,3) */
   display:flex;
 }
+.conceptListContainer{
+  display:flex;
+  flex-wrap:wrap;
+}
 #hbar{ /* area above the game where options might go */
   height:20vh;
 }
@@ -21,24 +25,26 @@
 #panel3{
   width:45vw;
 }
-.conceptListContainer{
+
+/* Selected Concepts List */
+.scl{
   display:flex;
   flex-wrap:wrap;
 }
-.greenSubConceptListContainer{
-  display:flex;
-  flex-wrap:wrap;
+.scl-g{
   background:green;
 }
-.blueSubConceptListContainer{
-  display:flex;
-  flex-wrap:wrap;
+.scl-u{
   background:blue;
 }
-.redSubConceptListContainer{
-  display:flex;
-  flex-wrap:wrap;
+.scl-r{
   background:red;
+}
+.scl-y{
+  background: yellow;
+}
+.scl-b{
+  background:black;
 }
 /*********/
 /* Color */

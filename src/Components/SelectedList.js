@@ -4,7 +4,7 @@ import Concept from "./Concept"
 class SelectedList extends Component{
     // the {variablename} syntax is only for inside the element like below in the <Concept>
 	render() {
-        const allColors = ['red','green','blue'];
+        const allColors = ['red','green','blue','yellow','black'];
         const getConceptStringsOfColor = targetColor => {
             return this.props.selected[targetColor];
         }
@@ -34,9 +34,11 @@ class SelectedList extends Component{
 
         return (
             <div>
-                <div className="greenSubConceptListContainer">{conceptGroups[1]}</div>
-                <div className="blueSubConceptListContainer">{conceptGroups[2]}</div>
-                <div className="redSubConceptListContainer">{conceptGroups[0]}</div>
+                <div className="scl scl-g">{conceptGroups[1]}</div>
+                <div className="scl scl-u">{conceptGroups[2]}</div>
+                <div className="scl scl-r">{conceptGroups[0]}</div>
+                <div className="scl scl-y">{conceptGroups[3]}</div>
+                <div className="scl scl-b">{conceptGroups[4]}</div>
             </div>
         );
     }

@@ -4,6 +4,7 @@ import ConceptList from './Components/ConceptList.js'
 import './App.css';
 import SubconceptSelector from './Components/SubconceptSelector.js';
 import SelectedList from './Components/SelectedList';
+import WordLists from './Components/WordLists';
 
 class App extends Component {
     constructor(props) {
@@ -47,11 +48,14 @@ class App extends Component {
         this.setState(stateCopy);
     }
 
+    words = [1,2,3].map(WordLists.getRandomWord).join(", ");
+
   render() {
     return(
         <div>
             <div id="hbar">
                 <h2> Rules, Options </h2>
+                <h3> {this.words} </h3>
             </div>
             <div id="container">
                 <div id="panel1" className="panel">
