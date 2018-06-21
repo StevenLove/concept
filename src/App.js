@@ -17,7 +17,8 @@ class App extends Component {
                 "red":[],
                 "yellow":[],
                 "black":[]
-            }
+            },
+            concept: ""
         }; 
     }
     copyState = () => JSON.parse(JSON.stringify(this.state));
@@ -48,17 +49,24 @@ class App extends Component {
         this.setState(stateCopy);
     }
 
-    words = [1,2,3].map(WordLists.getRandomWord).join(", ");
+    getRandomWord = (wordList) => {
+        let num = wordList.length;
+        let index = Math.floor(Math.random() * num); // ranges from 0 to num-1
+        let stateCopy = this.copyState();
+
+        stateCopy.concept = wordList[index];
+        this.setState(stateCopy);
+    }
 
   render() {
     return(
         <div>
             <div id="hbar">
                 <h2> Rules, Options </h2>
-                <h3> {this.words} </h3>
             </div>
             <div id="container">
                 <div id="panel1" className="panel">
+                    <WordLists selectFn={this.getRandomWord} word={this.state.concept}></WordLists>
                     <SubconceptSelector selectFn={this.selectSubconcept} selectedSubconcept={this.state.selectedSubconcept}></SubconceptSelector>
                 </div>
                 <div id="panel2" className="panel">
