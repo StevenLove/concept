@@ -52,24 +52,11 @@ class App extends Component {
     getRandomWord = (wordList) => {
         let num = wordList.length;
         let index = Math.floor(Math.random() * num); // ranges from 0 to num-1
-        let stateCopy = this.copyState();
-
-        stateCopy.concept = wordList[index];
-        this.setState(stateCopy);
+        // let stateCopy = this.copyState();
+        this.setState({"concept":wordList[index]});
     }
-
-    toggleHide = () => {
-        let stateCopy = this.copyState();
-
-        if(stateCopy.hidden === "hidden"){
-            stateCopy.hidden = "unHidden";
-        }
-        else{
-            stateCopy.hidden = "hidden";
-        }
-        this.setState(stateCopy);
-    }
-
+    hideWord = () => this.setState({"hidden":"hidden"});
+    showWord = () => this.setState({"hidden":"unHidden"});
   render() {
     return(
         <div>
@@ -78,7 +65,7 @@ class App extends Component {
             </div> */}
             <div id="container">
                 <div id="panel1" className="panel">
-                    <WordLists selectFn={this.getRandomWord} hideFn={this.toggleHide} word={this.state.concept} isHidden={this.state.hidden}></WordLists>
+                    <WordLists selectFn={this.getRandomWord} showFn={this.showWord} hideFn={this.hideWord} word={this.state.concept} isHidden={this.state.hidden}></WordLists>
                     <SubconceptSelector selectFn={this.selectSubconcept} selectedSubconcept={this.state.selectedSubconcept}></SubconceptSelector>
                 </div>
                 <div id="panel2" className="panel">

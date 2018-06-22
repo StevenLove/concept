@@ -506,6 +506,12 @@ class WordLists extends Component{
         "Up In Arms",
         "The Plot Thickens"
     ]
+    
+    /* upon initialization, generate a random word */
+    constructor(props){
+        super(props);
+        this.props.selectFn(this.codenamesList);
+    }
 
     handleClick = (codenamesList) => {
         this.props.selectFn(codenamesList); 
@@ -513,20 +519,27 @@ class WordLists extends Component{
 
     mouseListener = undefined;
     touchListener = undefined;
-    unHideClick = () => {
-        this.props.hideFn();
+    showUntilReleased = () => {
+        this.props.showFn();
         this.mouseListener = document.addEventListener("mouseup",()=>{
             this.props.hideFn();
             document.removeEventListener("touchend",this.touchListener);
         },{once:true})
-
-    }
-    unHideTouch = () => {
-        this.props.hideFn();
         this.touchListener = document.addEventListener("touchend",()=>{
             this.props.hideFn();
             document.removeEventListener("mouseup",this.mouseListener);
         },{once:true})
+    }
+
+    newConceptClickDown = () => {
+        this.props.selectFn(this.codenamesList);
+        // this.unHideClick();
+        this.showUntilReleased();
+    }
+    newConceptTouchDown = () => {
+        this.props.selectFn(this.codenamesList);
+        // this.unHideTouch();
+        this.showUntilReleased();
     }
 
     render(){
@@ -536,11 +549,11 @@ class WordLists extends Component{
         }
         return(
             <div className="noselect"> 
-                <button type="button" onClick={()=>this.handleClick(this.codenamesList)}>
+                <button type="button" onMouseDown={this.newConceptClickDown} onTouchStart={this.newConceptTouchDown}>
                     NEW CONCEPT
                 </button>
                 
-                <div className={ this.props.isHidden } onMouseDown={()=>this.unHideClick()} onTouchStart={this.unHideTouch}>
+                <div className={ this.props.isHidden } onMouseDown={this.showUntilReleased} onTouchStart={this.showUntilReleased}>
                     {codeword}
                 </div>
             </div>
