@@ -73,9 +73,9 @@ class App extends Component {
   render() {
     return(
         <div>
-            <div id="hbar">
+            {/* <div id="hbar">
                 <h2> Rules, Options </h2>
-            </div>
+            </div> */}
             <div id="container">
                 <div id="panel1" className="panel">
                     <WordLists selectFn={this.getRandomWord} hideFn={this.toggleHide} word={this.state.concept} isHidden={this.state.hidden}></WordLists>

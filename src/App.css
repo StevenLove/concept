@@ -93,7 +93,7 @@ button{
   width:8vw;
   height:4vw;
   margin:2vh;
-  line-height: 4vw; 
+  /* line-height: 4vw;  */
   justify-content: center;
   cursor:pointer;
 }
@@ -159,4 +159,16 @@ button:active{
 }
 .subconcept-selected.subconcept-black{
   border:5px solid white;
+}
+
+
+/* prevents text from being selected */
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }

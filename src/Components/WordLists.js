@@ -408,18 +408,37 @@ class WordLists extends Component{
         this.props.selectFn(codenamesList); 
     }
 
+    mouseListener = undefined;
+    touchListener = undefined;
     unHideClick = () => {
         this.props.hideFn();
+        this.mouseListener = document.addEventListener("mouseup",()=>{
+            this.props.hideFn();
+            document.removeEventListener("touchend",this.touchListener);
+        },{once:true})
+
+    }
+    unHideTouch = () => {
+        this.props.hideFn();
+        this.touchListener = document.addEventListener("touchend",()=>{
+            this.props.hideFn();
+            document.removeEventListener("mouseup",this.mouseListener);
+        },{once:true})
     }
 
     render(){
+        let codeword = <div> {this.props.word} </div>
+        if(this.props.isHidden === "hidden"){
+            codeword = <div></div>
+        }
         return(
-            <div>
+            <div className="noselect">
                 <button type="button" onClick={()=>this.handleClick(this.codenamesList)}>
                     NEW CONCEPT
                 </button>
-                <div className={ this.props.isHidden } onMouseDown={()=>this.unHideClick()} onMouseUp={()=>this.unHideClick()}>
-                    { this.props.word }
+                
+                <div className={ this.props.isHidden } onMouseDown={()=>this.unHideClick()} onTouchStart={this.unHideTouch}>
+                    {codeword}
                 </div>
             </div>
         )
