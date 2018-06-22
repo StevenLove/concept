@@ -138,6 +138,9 @@ button:active{
   cursor: pointer;
 }
 
+.subconcept:hover{
+  animation: pop 0.3s linear 1;
+}
 .subconcept-red{
   background-color:red;
 }

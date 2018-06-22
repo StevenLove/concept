@@ -535,7 +535,7 @@ class WordLists extends Component{
             codeword = <div></div>
         }
         return(
-            <div className="noselect">
+            <div className="noselect"> 
                 <button type="button" onClick={()=>this.handleClick(this.codenamesList)}>
                     NEW CONCEPT
                 </button>
