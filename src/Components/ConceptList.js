@@ -34,7 +34,7 @@ class ConceptList extends Component {
         'red','orange','pink','brown',
         'yellow','green','black','gray',
         'blue','purple','white','clear',
-        'turn'
+        'turn','use'
     ];
 
 
