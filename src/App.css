@@ -11,12 +11,15 @@
 #hbar{ /* area above the game where options might go */
   height:20vh;
 }
-.panel{ 
-  height:100vh;
+.panel{
+  height:92vh;
   overflow-x:hidden;
   padding-right:20px; /* leave room for a scrollbar on the right!*/
+  padding-top:4vh;
+  padding-bottom:4vh;
 }
 #panel1{
+  padding-left:3vw;
   width:10vw;
 }
 #panel2{
@@ -145,10 +148,15 @@ button:active{
 }
 
 .subconcept{
-  width:4vw;
-  height:4vw;
-  margin:2vh;
+  width:5vw;
+  height:5vw;
+  margin:1.5vh;
   cursor: pointer;
+}
+.subconcept img{
+  /* width */
+  height:100%;
+  padding-left:.75vw;
 }
 
 .subconcept:hover{

@@ -4,11 +4,7 @@ class SubconceptSelector extends Component {
     /* pass in a function 'selectFn' through props */
 
     colors = ["green","blue","red","yellow","black"];
-    images = {
-        "red":'blah',
-        "blue":'blah',
-        "green":'blah'
-    }
+    images = this.colors.map(color=>"img/pawn-"+color+".png");
     
     handleClick = (id) => {
         let color = this.colors[id];
@@ -28,7 +24,7 @@ class SubconceptSelector extends Component {
                             classString += " subconcept-selected";
                         }
                         return <div key={id} onClick={()=>this.handleClick(id)} className={classString}>
-
+                            <img src={this.images[id]}/>
                         </div>
                     })
                 }
