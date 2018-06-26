@@ -64,25 +64,18 @@
   width:40vw;
 }
 
-.cnh_holding{
-  position:relative;
-  width:10vw;
-  cursor: pointer;
-  margin: 1vh;
-}
-.cnh_ended{
-  position:relative;
-  width:10vw;
-  cursor: pointer;
-  margin: 1vh;
-}
-.cnh_ended:hover{
-  animation: pop 0.3s linear 1;
-}
 .conceptMain{
   border:5px solid orange; 
 }
-
+.conceptMain{
+  position:relative;
+  width:10vw;
+  cursor: pointer;
+  margin: 1vh;
+}
+.conceptMain:hover{
+  animation: pop 0.3s linear 1;
+}
 .concept{
   position:relative;
   width:10vw;
