@@ -18,7 +18,7 @@ class App extends Component {
                 "yellow":[],
                 "black":[]
             },
-            concept: "",
+            secretWords: [],
             hidden: "hidden"
         }; 
     }
@@ -56,15 +56,19 @@ class App extends Component {
         let stateCopy = this.copyState();
 
         stateCopy.selectedConcepts[color].splice(index,1);
+        /* implementing if we deselect all concepts, make the selected color green */
+        let colors = Object.keys(stateCopy.selectedConcepts);
+        let numSelected = colors.reduce((acc,color)=>{
+            acc += stateCopy.selectedConcepts[color].length;
+            return acc;
+        },0);
+        if(numSelected == 0){
+            setTimeout(()=>this.selectSubconcept("green"),10);
+        }
         this.setState({selectedConcepts:stateCopy.selectedConcepts})
     }
 
-    getRandomWord = (wordList) => {
-        let num = wordList.length;
-        let index = Math.floor(Math.random() * num); // ranges from 0 to num-1
-        // let stateCopy = this.copyState();
-        this.setState({"concept":wordList[index]});
-    }
+    setSecretWords = secretWords => this.setState({"secretWords":secretWords});
     hideWord = () => this.setState({"hidden":"hidden"});
     showWord = () => this.setState({"hidden":"unHidden"});
   render() {
@@ -75,7 +79,7 @@ class App extends Component {
             </div> */}
             <div id="container">
                 <div id="panel1" className="panel">
-                    <WordLists selectFn={this.getRandomWord} showFn={this.showWord} hideFn={this.hideWord} word={this.state.concept} isHidden={this.state.hidden}></WordLists>
+                    <WordLists setSecretWords={this.setSecretWords} showFn={this.showWord} hideFn={this.hideWord} secretWords={this.state.secretWords} isHidden={this.state.hidden}></WordLists>
                     <SubconceptSelector selectFn={this.selectSubconcept} selectedSubconcept={this.state.selectedSubconcept}></SubconceptSelector>
                 </div>
                 <div id="panel2" className="panel">

@@ -140,9 +140,9 @@ button:active{
   flex-wrap:wrap;
   background-color:white;
   width:8vw;
-  height:4vw;
+  /* height:4vw; */
   margin:2vh;
-  line-height: 4vw; 
+  /* line-height: 4vw;  */
   justify-content: center;
 }
 /* Subconcept Selector */
