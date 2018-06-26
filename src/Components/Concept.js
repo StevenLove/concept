@@ -16,6 +16,7 @@ class Concept extends Component {
     }
     end = ((hcf) => {
         return (e,enough) => {
+            console.log("end event",e);
             if(!enough){
                 hcf();
             }
@@ -32,14 +33,13 @@ class Concept extends Component {
         if(this.props.main !== ""){
             return (
                 <ClickNHold
-                    time={1.5}
+                    time={.5}
                     onStart={this.start}
                     onClickNHold={this.handleHold}
                     onEnd={this.end}
+                    className={className}
                 >
-                    <span className={className}>
-                        <img  src={imgSrc} alt={altText}></img>
-                    </span>
+                    <img  src={imgSrc} alt={altText}></img>
                 </ClickNHold>
             );
         }
