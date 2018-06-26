@@ -19,9 +19,15 @@ class SelectedList extends Component{
         }
 
         const makeConceptElementFromString = (concept,color,index) => {
+            let isMain = "no"
+            if(index === 0){
+                isMain = "yes";
+            }
+            console.log(isMain);
             return <Concept
                 key={index}
                 name={concept}
+                main={isMain}
                 selectFn={()=>handleClick(concept,color,index)}>
              </Concept>
         } 
