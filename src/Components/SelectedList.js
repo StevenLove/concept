@@ -18,17 +18,26 @@ class SelectedList extends Component{
             this.props.selectFn(record);
         }
 
+        const handleHold = (concept,color,index) => {
+            let record = {
+                concept:concept,
+                color:color,
+                index:index
+            }
+            this.props.holdFn(record);
+        }
+
         const makeConceptElementFromString = (concept,color,index) => {
             let isMain = "no"
             if(index === 0){
                 isMain = "yes";
             }
-            console.log(isMain);
             return <Concept
                 key={index}
                 name={concept}
                 main={isMain}
-                selectFn={()=>handleClick(concept,color,index)}>
+                selectFn={()=>handleClick(concept,color,index)}
+                holdFn={()=>handleHold(concept,color,index)}>
              </Concept>
         } 
         let conceptGroups = allColors.map(color=>{

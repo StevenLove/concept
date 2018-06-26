@@ -38,7 +38,17 @@ class App extends Component {
         stateCopy.selectedConcepts[color].push(concept);
         this.setState(stateCopy);
     }
+    makeMainConcept = record => {
+        let index = record.index;
+        let color = record.color;
+        let copy = record;
+        let stateCopy = this.copyState();
 
+        stateCopy.selectedConcepts[color].splice(index,1);
+        stateCopy.selectedConcepts[color].unshift(copy.concept);
+        this.setState(stateCopy);
+
+    }
     unselectConcept = record => {
         console.log("unselecting record",record);
         let color = record.color;
@@ -72,7 +82,7 @@ class App extends Component {
                     <ConceptList selectFn={this.selectConcept} selected={this.state.selectedConcepts}></ConceptList>
                 </div>
                 <div id="panel3" className="panel">
-                    <SelectedList selectFn={this.unselectConcept} selectSubconcept={this.selectSubconcept} selected={this.state.selectedConcepts} />
+                    <SelectedList selectFn={this.unselectConcept} holdFn={this.makeMainConcept} selectSubconcept={this.selectSubconcept} selected={this.state.selectedConcepts} />
                 </div>
             </div>
         </div>

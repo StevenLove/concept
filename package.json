@@ -2,10 +2,11 @@
   "name": "concept",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://stevenlove.github.io/concept/",
+  "homepage": "https://stevenlove.github.io/concept/",
   "dependencies": {
     "gh-pages": "^1.2.0",
     "react": "^16.3.2",
+    "react-click-n-hold": "^1.0.6",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4"
   },
