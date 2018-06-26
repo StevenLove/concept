@@ -46,6 +46,15 @@ class App extends Component {
         let stateCopy = this.copyState();
 
         stateCopy.selectedConcepts[color].splice(index,1);
+        /* implementing if we deselect all concepts, make the selected color green */
+        let colors = Object.keys(stateCopy.selectedConcepts);
+        let numSelected = colors.reduce((acc,color)=>{
+            acc += stateCopy.selectedConcepts[color].length;
+            return acc;
+        },0);
+        if(numSelected == 0){
+            setTimeout(()=>this.selectSubconcept("green"),10);
+        }
         this.setState({selectedConcepts:stateCopy.selectedConcepts})
     }
 
