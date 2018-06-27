@@ -1924,19 +1924,23 @@ class WordLists extends Component{
         let codewords = this.props.secretWords.map(word=>{
             return <p>{word}.</p>
         })
+        let secretWordBox;
 
         if(this.props.isHidden === "hidden"){
-            codewords = <div></div>
+            secretWordBox = <button type="button" className="secretWordButton" onMouseDown={this.showUntilReleased} onTouchStart={this.showUntilReleased}>Show Secret Words </button>
+        }
+        else{
+            secretWordBox = <div className="secretWordContainer" onMouseDown={this.showUntilReleased} onTouchStart={this.showUntilReleased}>
+                {codewords}
+            </div>
         }
         return(
             <div className="noselect"> 
                 <button type="button" onMouseDown={this.newConceptClickDown} onTouchStart={this.newConceptTouchDown}>
-                    NEW CONCEPT
+                    New Concept
                 </button>
                 
-                <div className={ this.props.isHidden } onMouseDown={this.showUntilReleased} onTouchStart={this.showUntilReleased}>
-                    {codewords}
-                </div>
+                {secretWordBox}
             </div>
         )
     }

@@ -119,6 +119,26 @@ button:hover{
 button:active{
   transform: translateY(3px);
 }
+.secretWordButton{
+  display:flex;
+  flex-wrap:wrap;
+  background-color: white;
+  width:8vw;
+  min-height:4vw;
+  margin:2vh;
+  /* line-height: 4vw;  */
+  justify-content: center;
+  cursor:pointer;
+}
+.secretWordContainer{
+  /* background-color: white; */
+  width:8vw;
+  min-height:4vw;
+  margin:2vh;
+}
+.secretWordButton:hover{
+  animation: pop 0.3s linear 1;
+}
 .hidden{
   display:flex;
   flex-wrap:wrap;
