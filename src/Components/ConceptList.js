@@ -37,12 +37,9 @@ class ConceptList extends Component {
         'turn','use'
     ];
 
-
-
-
     render() {
         let concepts = this.naturalOrdering.map((name,index)=>{ 
-            return <Concept key={index} name={name} main = "" selectFn={this.props.selectFn}></Concept>
+            return <Concept key={index} name={name} main = "" selectFn={()=>{this.props.selectFn(name)}}></Concept>
         })
         return (
             <div className="conceptListContainer" >

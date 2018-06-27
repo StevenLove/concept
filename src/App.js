@@ -33,6 +33,7 @@ class App extends Component {
 
     /* This fn is sent down to Concept.js */
     selectConcept = concept => {
+        console.log("selecting",concept);
         let color = this.state.selectedSubconcept;
         let stateCopy = this.copyState();
         stateCopy.selectedConcepts[color].push(concept);
@@ -46,8 +47,9 @@ class App extends Component {
 
         stateCopy.selectedConcepts[color].splice(index,1);
         stateCopy.selectedConcepts[color].unshift(copy.concept);
-        this.setState(stateCopy);
+        this.setState({selectedConcepts:stateCopy.selectedConcepts});
 
+        console.log(color,"concepts",this.state.selectedConcepts[color]);
     }
     unselectConcept = record => {
         console.log("unselecting record",record);
