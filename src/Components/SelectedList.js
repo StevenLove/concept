@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Concept from "./Concept"
+import ScrollWithMouse from './ScrollWithMouse';
 
 class SelectedList extends Component{
     // the {variablename} syntax is only for inside the element like below in the <Concept>
@@ -55,13 +56,13 @@ class SelectedList extends Component{
         }
 
         return (
-            <div>
+            <ScrollWithMouse scrollID="panel3">
                 <div onClick={ssc("green")} className="scl scl-g">{conceptGroups[1]}</div>
                 <div onClick={ssc("blue")} className="scl scl-u">{conceptGroups[2]}</div>
                 <div onClick={ssc("red")} className="scl scl-r">{conceptGroups[0]}</div>
                 <div onClick={ssc("yellow")} className="scl scl-y">{conceptGroups[3]}</div>
                 <div onClick={ssc("black")} className="scl scl-b">{conceptGroups[4]}</div>
-            </div>
+            </ScrollWithMouse>
         );
     }
 }

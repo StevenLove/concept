@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Concept from "./Concept"
+import ScrollWithMouse from "./ScrollWithMouse"
+// import {ScrollTo} from "react-scroll-to";
 // import Concepts from '../Configuration/concepts.js'
 
 class ConceptList extends Component {
@@ -36,15 +38,29 @@ class ConceptList extends Component {
         'blue','purple','white','clear',
         'turn','use'
     ];
+    // scrollUp = () => {
+    //     var self = $(".conceptListContainer");
+    //     this.iid = setInterval(function() {
+    //         offset += 30;
+    //         window.scrollTo(offset);
+    //     },10);
+    // };
+    // handle = undefined;
+    // scrollAmt = 0;
 
     render() {
         let concepts = this.naturalOrdering.map((name,index)=>{ 
             return <Concept key={index} name={name} main = "" selectFn={()=>{this.props.selectFn(name)}}></Concept>
         })
+
+
+
         return (
-            <div className="conceptListContainer" >
-                {concepts}
-            </div>
+            <ScrollWithMouse scrollID="panel2">
+                <div className="conceptListContainer">
+                    {concepts}
+                </div>
+            </ScrollWithMouse>
         );
     }
 }

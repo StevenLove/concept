@@ -12,21 +12,48 @@
   height:20vh;
 }
 .panel{
-  height:92vh;
+  /* height:92vh; */
   overflow-x:hidden;
-  padding-right:20px; /* leave room for a scrollbar on the right!*/
+  /* padding-right:4vw; leave room for a scrollbar on the right! */
   padding-top:4vh;
   padding-bottom:4vh;
 }
 #panel1{
+  position:fixed;
+  left:0;
+  height:92vh;
   padding-left:3vw;
   width:10vw;
 }
 #panel2{
+  position:fixed;
+  left:13vw;
   width:50vw;
+  height:92vh;
 }
 #panel3{
-  width:40vw;
+  position:fixed;
+  left:63vw;
+  height:92vh;
+  width:37vw;
+}
+.scrollArea{
+  opacity:0.2;
+  position:fixed;
+  /* left:13vw; */
+  width:50vw;
+  /* top:0; */
+  background:gray;
+  height:50px;
+  z-index:10; /* appear in front of concepts */
+}
+.scrollArea-up{
+  /* background:green; */
+  top:0;
+}
+.scrollArea-down{
+  /* background:blue; */
+  bottom:0;
 }
 
 /* Selected Concepts List */
@@ -223,4 +250,9 @@ img {
   -moz-user-drag: none;
   -o-user-drag: none;
   user-drag: none;
+}
+
+
+.scrollContainer{
+  height:100%;
 }
