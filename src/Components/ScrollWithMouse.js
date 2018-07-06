@@ -10,6 +10,9 @@ class ScrollWithMouse extends Component {
     handle = undefined;
     scrollAmt = 0;
     id = this.props.scrollID;
+
+    smoothDuration = 1000;
+    smoothDistance = 530;
     
 
     speeds = [10,15,25,40]
@@ -31,6 +34,20 @@ class ScrollWithMouse extends Component {
             duration:0
         });
     }
+    scrollDownSmooth = () => {
+        scroll.scrollMore(this.smoothDistance,{
+            containerId:this.id,
+            smooth:true,
+            duration:this.smoothDuration
+        })
+    }
+    scrollUpSmooth = () => {
+        scroll.scrollMore(-this.smoothDistance,{
+            containerId:this.id,
+            smooth:true,
+            duration:this.smoothDuration
+        })
+    }
     startScrollDown = speed => {
         speed = this.speeds[speed];
         this.scrollDown(speed);
@@ -48,17 +65,17 @@ class ScrollWithMouse extends Component {
     render() {
         return (
             <div className="scrollContainer">
-                <div className="scrollArea scrollArea-up" style={{height:"20px"}} onMouseEnter={(e)=>this.startScrollUp(0,e)} onMouseLeave={this.stopScrolling}></div>
-                <div className="scrollArea scrollArea-up" style={{height:"15px"}} onMouseEnter={(e)=>this.startScrollUp(1,e)} onMouseLeave={this.stopScrolling}></div>
-                <div className="scrollArea scrollArea-up" style={{height:"10px"}} onMouseEnter={(e)=>this.startScrollUp(2,e)} onMouseLeave={this.stopScrolling}></div>
-                <div className="scrollArea scrollArea-up" style={{height:"5px"}} onMouseEnter={(e)=>this.startScrollUp(3,e)} onMouseLeave={this.stopScrolling}></div>
+                <div className="scrollArea scrollArea-up" style={{height:"20px"}} onMouseEnter={()=>this.startScrollUp(0)} onMouseLeave={this.stopScrolling} onClick={this.scrollUpSmooth}></div>
+                <div className="scrollArea scrollArea-up" style={{height:"15px"}} onMouseEnter={()=>this.startScrollUp(1)} onMouseLeave={this.stopScrolling} onClick={this.scrollUpSmooth}></div>
+                <div className="scrollArea scrollArea-up" style={{height:"10px"}} onMouseEnter={()=>this.startScrollUp(2)} onMouseLeave={this.stopScrolling} onClick={this.scrollUpSmooth}></div>
+                <div className="scrollArea scrollArea-up" style={{height:"5px"}}  onMouseEnter={()=>this.startScrollUp(3)} onMouseLeave={this.stopScrolling} onClick={this.scrollUpSmooth}></div>
                 <div id="inner">
                     {this.props.children}
                 </div>
-                <div className="scrollArea scrollArea-down" style={{height:"20px"}} onMouseEnter={(e)=>this.startScrollDown(0,e)} onMouseLeave={this.stopScrolling}></div>
-                <div className="scrollArea scrollArea-down" style={{height:"15px"}} onMouseEnter={(e)=>this.startScrollDown(1,e)} onMouseLeave={this.stopScrolling}></div>
-                <div className="scrollArea scrollArea-down" style={{height:"10px"}}  onMouseEnter={(e)=>this.startScrollDown(2,e)} onMouseLeave={this.stopScrolling}></div>
-                <div className="scrollArea scrollArea-down" style={{height:"5px"}}  onMouseEnter={(e)=>this.startScrollDown(3,e)} onMouseLeave={this.stopScrolling}></div>
+                <div className="scrollArea scrollArea-down" style={{height:"20px"}} onMouseEnter={()=>this.startScrollDown(0)} onMouseLeave={this.stopScrolling} onClick={this.scrollDownSmooth}></div>
+                <div className="scrollArea scrollArea-down" style={{height:"15px"}} onMouseEnter={()=>this.startScrollDown(1)} onMouseLeave={this.stopScrolling} onClick={this.scrollDownSmooth}></div>
+                <div className="scrollArea scrollArea-down" style={{height:"10px"}} onMouseEnter={()=>this.startScrollDown(2)} onMouseLeave={this.stopScrolling} onClick={this.scrollDownSmooth}></div>
+                <div className="scrollArea scrollArea-down" style={{height:"5px"}}  onMouseEnter={()=>this.startScrollDown(3)} onMouseLeave={this.stopScrolling} onClick={this.scrollDownSmooth}></div>
 
             </div>
         )
