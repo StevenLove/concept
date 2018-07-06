@@ -49,11 +49,13 @@ class ScrollWithMouse extends Component {
         })
     }
     startScrollDown = speed => {
+        return;
         speed = this.speeds[speed];
         this.scrollDown(speed);
         this.handle = setInterval(()=>this.scrollDown(speed),this.scrollTime)
     }
     startScrollUp = speed => {
+        return;
         speed = this.speeds[speed];
         this.scrollUp(speed);
         this.handle = setInterval(()=>this.scrollUp(speed),this.scrollTime)
