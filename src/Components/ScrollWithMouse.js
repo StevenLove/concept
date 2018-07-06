@@ -16,6 +16,12 @@ class ScrollWithMouse extends Component {
     
 
     speeds = [10,15,25,40]
+
+    getscrollDistance = () => {
+        let elementHeight = document.getElementById(this.id).offsetHeight;
+        console.log("element height",elementHeight);
+        return elementHeight-30;
+    }
     
     scrollDown=n=>{
         console.log("scroll down",this.id);
@@ -35,14 +41,14 @@ class ScrollWithMouse extends Component {
         });
     }
     scrollDownSmooth = () => {
-        scroll.scrollMore(this.smoothDistance,{
+        scroll.scrollMore(this.getscrollDistance(),{
             containerId:this.id,
             smooth:true,
             duration:this.smoothDuration
         })
     }
     scrollUpSmooth = () => {
-        scroll.scrollMore(-this.smoothDistance,{
+        scroll.scrollMore(-this.getscrollDistance(),{
             containerId:this.id,
             smooth:true,
             duration:this.smoothDuration
